@@ -4,15 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://static.afreecatv.com/asset/app/extension-helper/afreecatv-extension-sdk.js"></script>
-    <link href="/your-path-to-uicons/css/uicons-[your-style].css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/game.css">
-    <title>게임_Info</title>
+    <title>GAME INFO_BJ</title>
 </head>
 
 <body>
+    <script src="js/game.js"></script>
     <div>
-        <script src="js/game.js"></script>
         <img src="pic/game.png" alt="icon" width="4%;" style="float: left;";>
         <h3>&nbsp; 게임_Info</h3>
     </div>
@@ -22,14 +21,14 @@
         <input id="check-btn" type="checkbox"/>
         <label for="check-btn">태그 선택&nbsp;</label>
         <ul class="menubars">
-            <input type="checkbox" name="tag" value="a" onclick="choosetag()">a
-            <input type="checkbox" name="tag" value="b" onclick="choosetag()">b
-            <input type="checkbox" name="tag" value="c" onclick="choosetag()">c
-            <input type="checkbox" name="tag" value="d" onclick="choosetag()">d
-            <input type="checkbox" name="tag" value="e" onclick="choosetag()">e
+            <input type="checkbox" name="tag" value="a" onclick="choosetag(this)">a
+            <input type="checkbox" name="tag" value="b" onclick="choosetag(this)">b
+            <input type="checkbox" name="tag" value="c" onclick="choosetag(this)">c
+            <input type="checkbox" name="tag" value="d" onclick="choosetag(this)">d
+            <input type="checkbox" name="tag" value="e" onclick="choosetag(this)">e
         </ul>
     </div>
-    <div id="result"></div>
+    <!-- <div id="result"></div> -->
     <div id="name">
         <input type="text" id="game_title" size="30">
         <input type="button" value="추가" onclick="addList()"/>
