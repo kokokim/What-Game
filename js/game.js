@@ -1,5 +1,7 @@
 // bj_screen
 let tag_result=''; //태그 데이터
+let game_result='';
+
 function choosetag(){
     tag_result='';
     var count=0;
@@ -31,7 +33,9 @@ function choosetag(){
 
 
 function addList() {
+    tag_result='';
     const game_name = document.getElementById('game_title').value; //게임명
+    tag_result=game_name;
     
     const li = document.createElement("li");
 
@@ -52,6 +56,10 @@ function addList() {
     //체크박스 모두 체크 취소 좀 짜줘요!!!
     document.getElementById('game_title').value = '';
 
+}
+
+function saveData(){
+    //save버튼 클릭시 user_screen에 표시
 }
 
 const SDK = window.AFREECA.ext;
