@@ -3,3 +3,24 @@
 #check-btn { display: none; }
 #check-btn:checked ~ .menubars { display: block; } 
 .menubars { display: none; }
+
+#pro_title{
+    text-align: center;
+}
+#pro_img{
+    text-align: center;
+}
+#input_data{
+    float:left;
+    /* width: 33%; */
+}
+#save{
+    text-align: center;
+}
+#tag_list{
+    line-height: 1em;
+}
+#game_list{
+    line-height: 5em;
+    border: 1px solid red;
+}
