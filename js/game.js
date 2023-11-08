@@ -1,6 +1,8 @@
 // bj_screen
 let tag_result=''; //태그 데이터
-let game_result='';
+
+var tag_arr=[];
+var gamename_arr=[];
 
 function choosetag(obj){
     tag_result='';
@@ -18,7 +20,6 @@ function choosetag(obj){
     });
     if(count>3){
         alert("3개 이상 체크됨");
-        //해당 체크박스 취소 코드 짜야함 (안짜져요.. checked=false가 없어!!!!!)
         obj.checked=false;
         result=result.pop();
         
@@ -28,15 +29,12 @@ function choosetag(obj){
     // document.getElementById('result').innerText = result;
     alert(result); //체크된 값 들어가있음
     tag_result=result;
+    tag_arr.push(result);
 }
 
-
-
-
 function addList() {
-    game_result='';
     const game_name = document.getElementById('game_title').value; //게임명
-    game_result=game_name;
+    gamename_arr.push(game_name);
     
     const li = document.createElement("li");
 
@@ -54,7 +52,6 @@ function addList() {
     document.getElementById("game_list").appendChild(li)
 
     //체크박스 모두 체크 취소 및 text값 안의 입력값 삭제
-    //체크박스 모두 체크 취소 좀 짜줘요!!!
     const checkboxes=document.getElementsByName('tag');
     checkboxes.forEach((checkbox)=>{
         checkbox.checked=false;
@@ -65,23 +62,25 @@ function addList() {
 
 function saveData(){
     //save버튼 클릭시 user_screen에 표시
-    const tagNode = document.createTextNode(tag_result);
-    const textNode = document.createTextNode(game_result);
+    alert(tag_arr);
+    alert(gamename_arr);
 
-    // li.appendChild(tagNode);
-    // li.appendChild(textNode);
+    localStorage.setItem("tag", tag_arr);
+    localStorage.setItem("gamename", gamename_arr);
 
-    // document.getElementById("u_tag_list").appendChild(li)
-    // document.getElementById("u_game_list").appendChild(li)
+    //이코드는 bj 페이지에서 user 페이지로 이동하면서 새로고침해줌... bj페이지를 냅두면서 user 페이지를 새로고침해야함...
+    // window.location.href="user_screen.html";
 
-    // setTimeout("location.href='user_screen.html'", 3000);
+
 }
+
 
 const SDK = window.AFREECA.ext;
 const extensionSDK = SDK();
 function init() {
     // do something
 }
+
 
 extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
     init();
