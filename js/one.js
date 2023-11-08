@@ -3,11 +3,9 @@ const extensionSDK = SDK();
 function init() {
     // do something
 }
-
     extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
     init();
 });
-
 function addList() {
     const game_name = document.getElementById('game_title').value;
 
