@@ -1,3 +1,13 @@
+const SDK = window.AFREECA.ext;
+const extensionSDK = SDK();
+function init() {
+    // do something
+}
+
+    extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
+    init();
+});
+
 function addList() {
     const game_name = document.getElementById('game_title').value;
 
@@ -7,7 +17,5 @@ function addList() {
 
     const textNode = document.createTextNode(game_name);
     li.appendChild(textNode);
-    const buttonNode = document.cre
-    li.appendChild()
     document.getElementById("game_list").appendChild(li)
 }
