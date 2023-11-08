@@ -35,11 +35,16 @@ function choosetag(obj){
 function addList() {
     const game_name = document.getElementById('game_title').value; //게임명
     gamename_arr.push(game_name);
-    
+    const onoffNode = document.createElement('input');
+    onoffNode.type = 'checkbox';
+    onoffNode.id = 'game_check';
+
+
     const li = document.createElement("li");
 
     li.setAttribute('tag', tag_result);
     li.setAttribute('id', game_name);
+    li.setAttribute('check', onoffNode);
     
 
     const tagNode = document.createTextNode(tag_result);
@@ -47,9 +52,11 @@ function addList() {
 
     li.appendChild(tagNode);
     li.appendChild(textNode);
+    li.appendChild(onoffNode);
 
-    document.getElementById("tag_list").appendChild(li)
-    document.getElementById("game_list").appendChild(li)
+    document.getElementById("tag_list").appendChild(li);
+    document.getElementById("game_list").appendChild(li);
+    document.getElementById("game_onoff").appendChild(li);
 
     //체크박스 모두 체크 취소 및 text값 안의 입력값 삭제
     const checkboxes=document.getElementsByName('tag');
