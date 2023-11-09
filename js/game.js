@@ -38,6 +38,7 @@ function addList() {
     const onoffNode = document.createElement('input');
     onoffNode.type = 'checkbox';
     onoffNode.id = 'game_check';
+    onoffNode.onclick = onoff_check();
 
 
     const li = document.createElement("li");
@@ -81,6 +82,9 @@ function saveData(){
 
 }
 
+function onoff_check(){
+
+}
 
 const SDK = window.AFREECA.ext;
 const extensionSDK = SDK();
