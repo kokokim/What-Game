@@ -15,7 +15,7 @@ function choosetag(obj){
     // 선택된 목록에서 value 찾기
     let result = '';
     selectedEls.forEach((el) => {
-        result += el.value + ' ';
+        result += el.value + '';
         count++;
     });
     if(count>3){
@@ -40,7 +40,13 @@ function addList() {
     onoffNode.id = 'game_check';
     onoffNode.onclick = onoff_check;
 
-
+    if(typeof game_name==="string"){
+        alert("문자열");
+    }
+    else{
+        alert("dksla");
+    }
+    
     const li = document.createElement("li");
 
     li.setAttribute('tag', tag_result);
@@ -73,7 +79,9 @@ function saveData(){
     alert(tag_arr);
     alert(gamename_arr);
 
-    localStorage.setItem("tag", tag_arr);
+    alert(tag_arr.length);
+
+    localStorage.setItem("tag", JSON.stringify(tag_arr));
     localStorage.setItem("gamename", gamename_arr);
 
     //이코드는 bj 페이지에서 user 페이지로 이동하면서 새로고침해줌... bj페이지를 냅두면서 user 페이지를 새로고침해야함...
