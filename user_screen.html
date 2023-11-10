@@ -35,11 +35,11 @@
             onoffNode.name = "switch";
             onoffNode.type = 'radio';
             onoffNode.id = 'game_check';
-            console.log("함수실행")
+            console.log("함수실행");
             for(let i = 0; i<listen_data.length; i++)
             {
-                console.log("반복문 실행")
-                const li = documet.createElement("li");
+                console.log("반복문 실행");
+                const li = document.createElement("li");
                 const tag = document.createTextNode(listen_data[i].tag);
                 const name = document.createTextNode(listen_data[i].name);
                 const check = listen_data[i].check;
