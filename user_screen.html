@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://static.afreecatv.com/asset/app/extension-helper/afreecatv-extension-sdk.js"></script>
-    <script src="js/game.js"></script>
-    <!-- <script src="js/test.js"></script> -->
+    <!-- <script src="js/game.js"></script> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/game.css">
     <title>USER SCREEN</title>
@@ -13,44 +12,55 @@
     <div>
         <img src="pic/game.png" alt="icon" width="4%;" style="float: left;";>
         <h3>&nbsp; 게임_Info</h3>
-        <input type="button" value="새로고침" onclick="reload()"/>
     </div>
     <hr/>
     <div id="u_list">
-        <ol id="u_tag_list"></ol>
         <ol id="u_game_list"></ol>
-        <!-- <ol id="game_onoff"></ol> -->
     </div>
     <script>
-        function reload(){
-            location.reload();
+        const SDK = window.AFREECA.ext;
+        const extensionSDK = SDK();
+
+        var listen_data;
+//sdk를 초기화하고 bj가 보낸 데이터를 수신
+        extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
+            extensionSDK.broadcast.listen(function(action, message) {
+                listen_data = message;
+                console.log(listen_data);
+                reload_game_list(listen_data);
+            });
+        });
+        function reload_game_list(listen_data){
+            const onoffNode = document.createElement('input');
+            onoffNode.name = "switch";
+            onoffNode.type = 'radio';
+            onoffNode.id = 'game_check';
+            console.log("함수실행")
+            for(let i = 0; i<listen_data.length; i++)
+            {
+                console.log("반복문 실행")
+                const li = documet.createElement("li");
+                const tag = document.createTextNode(listen_data[i].tag);
+                const name = document.createTextNode(listen_data[i].name);
+                const check = listen_data[i].check;
+                console.log(tag, name, check);
+                if(check == true)
+                {
+                    onoffNode.checked = true;
+                }
+                else{
+                    onoffNode.checked = false;
+                }
+                li.setAttribute('tag', tag);
+                li.setAttribute('name', name);
+
+                li.appendChild(tag);
+                li.appendChild(name);
+                li.appendChild(onoffNode);
+                console.log(li);
+                document.getElementById("u_game_list").appendChild(li);
+            }
         }
-    </script>
-    <script>
-        var tag = JSON.parse(localStorage.getItem('tag'));
-        var gamename=JSON.parse(localStorage.getItem('gamename'));
-        alert(tag);
-        alert(gamename);
-        alert(tag.length);
-
-        const li = document.createElement("li");
-
-        for(var i=0;i<tag.length;i++){
-            li.setAttribute('tag', tag[i]);
-            li.setAttribute('id', gamename[i]);
-            alert(gamename[i]);
-            //console.log(tag[i], "--", gamename[i]);
-
-            const tagNode = document.createTextNode(tag[i]);
-            const textNode = document.createTextNode(gamename[i]);
-
-            li.appendChild(tagNode);
-            li.appendChild(textNode);
-
-            document.getElementById("u_tag_list").appendChild(li);
-            document.getElementById("u_game_list").appendChild(li);
-        }
-
     </script>
 
 </body>

@@ -27,14 +27,13 @@ function choosetag(obj){
 
     // 출력
     // document.getElementById('result').innerText = result;
-    alert(result); //체크된 값 들어가있음
+    // alert(result); //체크된 값 들어가있음
     tag_result=result;
     tag_arr.push(result);
 }
 
 function addList() {
     const game_name = document.getElementById('game_title').value; //게임명
-    gamename_arr.push(game_name);
     const onoffNode = document.createElement('input');
     onoffNode.name = "switch";
     onoffNode.type = 'radio';
@@ -52,7 +51,6 @@ function addList() {
 
     li.setAttribute('tag', tag_result);
     li.setAttribute('id', game_name);
-    li.setAttribute('check', onoffNode);
     
     const tagNode = document.createTextNode(tag_result);
     const textNode = document.createTextNode(game_name);
@@ -61,9 +59,7 @@ function addList() {
     li.appendChild(textNode);
     li.appendChild(onoffNode);
 
-    document.getElementById("tag_list").appendChild(li);
     document.getElementById("game_list").appendChild(li);
-    document.getElementById("game_onoff").appendChild(li);
 
     //체크박스 모두 체크 취소 및 text값 안의 입력값 삭제
     const checkboxes=document.getElementsByName('tag');
@@ -74,50 +70,28 @@ function addList() {
     tag_result = '';
 }
 
-function saveData(){
-    //save버튼 클릭시 user_screen에 표시
-    alert(tag_arr);
-    alert(gamename_arr);
-    alert(tag_arr.length);
-
-    // const game_data = {
-    //     game_tag: tag_arr,
-    //     game_title: gamename_arr,
-    // }
-
-    // const test = document.querySelector("#gmae_save");
-    // test.addEventListener('click', () => {
-    //     localStorage.setItem("game_data", JSON.stringify(game_data));
-    // })
-
-    // localStorage.setItem("테스트", "게임이름");
-
-    localStorage.setItem("tag", JSON.stringify(tag_arr));
-    localStorage.setItem("gamename", JSON.stringify(gamename_arr));
-
-    //이코드는 bj 페이지에서 user 페이지로 이동하면서 새로고침해줌... bj페이지를 냅두면서 user 페이지를 새로고침해야함...
-    // window.location.href="user_screen.html";
-
-
-
-}
-
-function onoff_check(obj){
-    
-    alert("성공?");
-    // const game_onoff_check = document.getElementsByName('game_check');
-    // game_onoff_check.forEach(())
-
-
-}
-
 const SDK = window.AFREECA.ext;
 const extensionSDK = SDK();
-function init() {
-    // do something
-}
+function saveData(){
 
-
+    const alldiv = document.getElementById('list');
+    const content = alldiv.getElementsByTagName('li');
+    console.log(content);
+    var send_list = [];
+    //태그와 게임이름 체크상태를 send_list에 객체로 생성하고 보냄
+    for(let i=0; i < content.length; i++)
+    {
+        send_list.push({
+            tag: content[i].getAttribute('tag'),
+            name: content[i].getAttribute('id'),
+            check: content[i].firstElementChild.checked
+        })
+    }
+    console.log(send_list);
+    extensionSDK.broadcast.send('game_list', send_list);
+    }
 extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
-    init();
+    saveData();
+    //이게 실행해서 아프리카sdk사용을 위한 초기화가 진행되고 saveData가 실행됨
 });
+

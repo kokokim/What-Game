@@ -23,7 +23,7 @@
 #game_list{
     line-height: 5em;
 }
-/* [id="game_check"] {
+ [id="game_check"] {
     appearance: none;
     position: relative;
     border: max(2px, 0.1em) solid gray;
@@ -76,8 +76,8 @@
   
   [id="game_check"]:enabled:hover {
     box-shadow: 0 0 0 max(4px, 0.2em) lightgray;
-  } */
-
+  } 
+/*
   .switch {
     position: relative;
     display: inline-block;
@@ -126,7 +126,7 @@ input:checked+.slider:before {
 }
 
 
-/* ON OFF 글자 추가 */
+//ON OFF 글자 추가
 
 .slider::after {
     content: "OFF";
@@ -144,3 +144,4 @@ input:checked+.slider::after {
     left: 10px;
     color: #fff;
 }
+*/
