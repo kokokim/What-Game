@@ -2,12 +2,30 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <script src="https://static.afreecatv.com/asset/app/extension-helper/afreecatv-extension-sdk.js"></script>
+    <script src="js/game.js"></script>
+    <!-- <script src="js/test.js"></script> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/game.css">
     <title>USER SCREEN</title>
 </head>
 <body>
-    <script src="js/game.js"></script>
+    <div>
+        <img src="pic/game.png" alt="icon" width="4%;" style="float: left;";>
+        <h3>&nbsp; 게임_Info</h3>
+        <input type="button" value="새로고침" onclick="reload()"/>
+    </div>
+    <hr/>
+    <div id="u_list">
+        <ol id="u_tag_list"></ol>
+        <ol id="u_game_list"></ol>
+        <!-- <ol id="game_onoff"></ol> -->
+    </div>
+    <script>
+        function reload(){
+            location.reload();
+        }
+    </script>
     <script>
         var tag = JSON.parse(localStorage.getItem('tag'));
         var gamename=JSON.parse(localStorage.getItem('gamename'));
@@ -15,32 +33,25 @@
         alert(gamename);
         alert(tag.length);
 
-        <!-- const li = document.createElement("li");
+        const li = document.createElement("li");
 
         for(var i=0;i<tag.length;i++){
             li.setAttribute('tag', tag[i]);
             li.setAttribute('id', gamename[i]);
             alert(gamename[i]);
+            //console.log(tag[i], "--", gamename[i]);
+
+            const tagNode = document.createTextNode(tag[i]);
+            const textNode = document.createTextNode(gamename[i]);
 
             li.appendChild(tagNode);
             li.appendChild(textNode);
 
-            document.getElementById("tag_list").appendChild(li)
-            document.getElementById("game_list").appendChild(li) 
-        } -->
+            document.getElementById("u_tag_list").appendChild(li);
+            document.getElementById("u_game_list").appendChild(li);
+        }
 
     </script>
-    <div>
-        <img src="pic/game.png" alt="icon" width="4%;" style="float: left;";>
-        <h3>&nbsp; 게임_Info</h3>
-    </div>
-    <hr/>
-
-    <div id="u_list">
-        <ol id="u_tag_list"></ol>
-        <ol id="u_game_list"></ol>
-        <ol id="game_onoff"></ol>
-    </div>
 
 </body>
 </html>

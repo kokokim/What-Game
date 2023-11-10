@@ -36,9 +36,10 @@ function addList() {
     const game_name = document.getElementById('game_title').value; //게임명
     gamename_arr.push(game_name);
     const onoffNode = document.createElement('input');
-    onoffNode.type = 'checkbox';
+    onoffNode.name = "switch";
+    onoffNode.type = 'radio';
     onoffNode.id = 'game_check';
-    onoffNode.onclick = onoff_check;
+    // onoffNode.onclick = onoff_check;
 
     if(typeof game_name==="string"){
         alert("문자열");
@@ -53,7 +54,6 @@ function addList() {
     li.setAttribute('id', game_name);
     li.setAttribute('check', onoffNode);
     
-
     const tagNode = document.createTextNode(tag_result);
     const textNode = document.createTextNode(game_name);
 
@@ -78,11 +78,22 @@ function saveData(){
     //save버튼 클릭시 user_screen에 표시
     alert(tag_arr);
     alert(gamename_arr);
-
     alert(tag_arr.length);
 
+    // const game_data = {
+    //     game_tag: tag_arr,
+    //     game_title: gamename_arr,
+    // }
+
+    // const test = document.querySelector("#gmae_save");
+    // test.addEventListener('click', () => {
+    //     localStorage.setItem("game_data", JSON.stringify(game_data));
+    // })
+
+    // localStorage.setItem("테스트", "게임이름");
+
     localStorage.setItem("tag", JSON.stringify(tag_arr));
-    localStorage.setItem("gamename", gamename_arr);
+    localStorage.setItem("gamename", JSON.stringify(gamename_arr));
 
     //이코드는 bj 페이지에서 user 페이지로 이동하면서 새로고침해줌... bj페이지를 냅두면서 user 페이지를 새로고침해야함...
     // window.location.href="user_screen.html";
@@ -91,8 +102,13 @@ function saveData(){
 
 }
 
-function onoff_check(){
-    alert("성공?")
+function onoff_check(obj){
+    
+    alert("성공?");
+    // const game_onoff_check = document.getElementsByName('game_check');
+    // game_onoff_check.forEach(())
+
+
 }
 
 const SDK = window.AFREECA.ext;
