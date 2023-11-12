@@ -23,7 +23,7 @@
 #game_list{
     line-height: 5em;
 }
- [id="game_check"] {
+ [id="Game_Check"] {
     appearance: none;
     position: relative;
     border: max(2px, 0.1em) solid gray;
@@ -32,7 +32,7 @@
     height: 1.25em;
   }
   
-  [id="game_check"]::before {
+  [id="Game_Check"]::before {
     content: "";
     position: absolute;
     left: 0;
@@ -44,37 +44,37 @@
     transition: left 250ms linear;
   }
   
-  [id="game_check"]:checked {
+  [id="Game_Check"]:checked {
     background-color: tomato;
     border-color: tomato;
   }
   
-  [id="game_check"]:checked::before {
+  [id="Game_Check"]:checked::before {
     background-color: white;
     left: 1em;
   }
   
-  [id="game_check"]:disabled {
+  [id="Game_Check"]:disabled {
     border-color: lightgray;
     opacity: 0.7;
     cursor: not-allowed;
   }
   
-  [id="game_check"]:disabled:before {
+  [id="Game_Check"]:disabled:before {
     background-color: lightgray;
   }
   
-  [id="game_check"]:disabled + span {
+  [id="Game_Check"]:disabled + span {
     opacity: 0.7;
     cursor: not-allowed;
   }
   
-  [id="game_check"]:focus-visible {
+  [id="Game_Check"]:focus-visible {
     outline-offset: max(2px, 0.1em);
     outline: max(2px, 0.1em) solid tomato;
   }
   
-  [id="game_check"]:enabled:hover {
+  [id="Game_Check"]:enabled:hover {
     box-shadow: 0 0 0 max(4px, 0.2em) lightgray;
   } 
 /*

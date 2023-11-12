@@ -31,13 +31,14 @@
             });
         });
         function reload_game_list(listen_data){
-            const onoffNode = document.createElement('input');
-            onoffNode.name = "switch";
-            onoffNode.type = 'radio';
-            onoffNode.id = 'game_check';
-            onoffNode.attr = false;
             for(let i = 0; i<listen_data.length; i++)
             {
+                const onoffNode = document.createElement('input');
+                onoffNode.name = "switch";
+                onoffNode.type = 'radio';
+                onoffNode.id = 'Game_Check';
+                onoffNode.disabled = 'disabled';
+
                 const li = document.createElement("li");
                 const tag = document.createTextNode(listen_data[i].tag);
                 const name = document.createTextNode(listen_data[i].name);
@@ -47,7 +48,8 @@
                 {
                     onoffNode.checked = true;
                 }
-                else{
+                else
+                {
                     onoffNode.checked = false;
                 }
                 li.setAttribute('tag', tag);
@@ -60,6 +62,5 @@
             }
         }
     </script>
-
 </body>
 </html>
