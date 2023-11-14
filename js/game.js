@@ -37,15 +37,7 @@ function addList() {
     const onoffNode = document.createElement('input');
     onoffNode.name = "switch";
     onoffNode.type = 'radio';
-    onoffNode.id = 'game_check';
-    // onoffNode.onclick = onoff_check;
-
-    if(typeof game_name==="string"){
-        alert("문자열");
-    }
-    else{
-        alert("dksla");
-    }
+    onoffNode.id = 'Game_Check';
     
     const li = document.createElement("li");
 
@@ -76,21 +68,22 @@ function saveData(){
 
     const alldiv = document.getElementById('list');
     const content = alldiv.getElementsByTagName('li');
-    console.log(content);
     var send_list = [];
     //태그와 게임이름 체크상태를 send_list에 객체로 생성하고 보냄
     for(let i=0; i < content.length; i++)
     {
+        console.log("반복문 돔");
         send_list.push({
             tag: content[i].getAttribute('tag'),
             name: content[i].getAttribute('id'),
             check: content[i].firstElementChild.checked
         })
     }
-    console.log(send_list);
+    console.log("반복문끝");
     extensionSDK.broadcast.send('game_list', send_list);
     }
 extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
+    console.log(send_list);
     saveData();
     //이게 실행해서 아프리카sdk사용을 위한 초기화가 진행되고 saveData가 실행됨
 });
