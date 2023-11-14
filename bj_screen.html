@@ -7,39 +7,72 @@
     <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <title>BJ SCREEN</title>
 </head>
 
 <body>
     <script src="js/game.js"></script>
-    <div>
+    <!-- <div>
         <img src="pic/game.png" alt="icon" width="4%;" style="float: left;";>
         <h3>&nbsp; 게임_Info</h3>
-    </div>
-    <hr/>
+    </div> -->
+    <!-- <hr/> -->
     
-    <div>
-        <input id="check-btn" type="checkbox"/>
-        <label for="check-btn">태그 선택&nbsp;</label>
-        <ul class="menubars">
-            <input type="checkbox" name="tag" value="a" onclick="choosetag(this)">a
-            <input type="checkbox" name="tag" value="b" onclick="choosetag(this)">b
-            <input type="checkbox" name="tag" value="c" onclick="choosetag(this)">c
-            <input type="checkbox" name="tag" value="d" onclick="choosetag(this)">d
-            <input type="checkbox" name="tag" value="e" onclick="choosetag(this)">e
+    <div class="tag_container">
+        <div class="select-btn">
+            <span class="btn-text">Select Tags</span>
+            <span class="arrow-dwn">
+                <i class="fa-solid fa-chevron-down"></i>
+            </span>
+        </div>
+        <ul class="list-items">
+            <li class="item">
+                <span class="checkbox">
+                    <i class="fa-solid fa-check check-icon"></i>
+                </span>
+                <input class="item-text" type="checkbox" name="tag" value="a" onclick="choosetag(this)">a
+            </li>
+            <li class="item">
+                <span class="checkbox">
+                    <i class="fa-solid fa-check check-icon"></i>
+                </span>
+                <input class="item-text" type="checkbox" name="tag" value="b" onclick="choosetag(this)">b
+            </li>
+            <li class="item">
+                <span class="checkbox">
+                    <i class="fa-solid fa-check check-icon"></i>
+                </span>
+                <input class="item-text" type="checkbox" name="tag" value="c" onclick="choosetag(this)">c
+            </li>
+            <li class="item">
+                <span class="checkbox">
+                    <i class="fa-solid fa-check check-icon"></i>
+                </span>
+                <input class="item-text" type="checkbox" name="tag" value="d" onclick="choosetag(this)">d
+            </li>
+            <li class="item">
+                <span class="checkbox">
+                    <i class="fa-solid fa-check check-icon"></i>
+                </span>
+                <input class="item-text" type="checkbox" name="tag" value="e" onclick="choosetag(this)">e
+            </li>
+            
         </ul>
     </div>
     <!-- <div id="result"></div> -->
-    <div id="name">
+    <div id="name" class="title_container">
         <input type="text" id="game_title" size="30">
-        <input type="button" value="추가" onclick="addList()"/>
+        <input type="button" id="add_btn" value="추가" onclick="addList()"/>
     </div>
-    <div id="list">
-        <ol id="game_list"></ol>
-    </div>
-    <div id="save">
+
+    <div id="save" class="save_container">
         <input type="button" id="game_save" value="SAVE" onclick="saveData()">
     </div>
 
+    <div id="list" class="list_container">
+        <ol id="game_list"></ol>
+    </div>
+    <script src="js/script.js"></script>
 </body>
 </html>
