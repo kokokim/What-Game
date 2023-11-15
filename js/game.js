@@ -1,36 +1,70 @@
 // bj_screen
-let tag_result=''; //태그 데이터
-
 var tag_arr=[];
 var gamename_arr=[];
 
-function choosetag(obj){
-    tag_result='';
-    var count=0;
-    // 선택된 목록 가져오기
-    const query = 'input[name="tag"]:checked';
-    const selectedEls = document.querySelectorAll(query);
 
+//버튼 클릭시 메뉴바 열림
+const selectBtn = document.querySelector(".select-btn"),
+      items = document.querySelectorAll(".item");
+      
+selectBtn.addEventListener("click", () => {
+    selectBtn.classList.toggle("open");
+});
 
-    // 선택된 목록에서 value 찾기
-    let result = '';
-    selectedEls.forEach((el) => {
-        result += el.value + '';
-        count++;
+var count=0;
+
+items.forEach(item => {
+    item.addEventListener("click", () => {
+
+        const tag_check_box=item.querySelector('input');
+        item.classList.toggle("checked");
+        // alert(check_text.value);
+
+        //css상 네모박스와 checkbox 연결
+        if(tag_check_box.checked){
+            tag_check_box.checked=false;
+            
+            alert("체크안됨");
+            //체크하고 다시 체크했을때 해당 value값을 배열에서 빼야함
+            const indexToRemove=tag_arr.indexOf(tag_check_box.value);
+            if(indexToRemove!==-1){
+                tag_arr.splice(indexToRemove, 1);
+            }
+            count--;
+        }
+        else{
+            if(count<3){
+                tag_check_box.checked=true;
+                alert("체크됨");
+                tag_arr.push(tag_check_box.value);
+                count++;
+            }
+            else{
+                alert("3개 이상 체크됨. 더이상 체크 불가");
+                item.classList.remove("checked");
+            }
+        }
+        // if(count>3){
+        //     alert("3개 이상 체크됨");
+        //     item.checked=false;
+        //     // result=result.pop();
+        // }
+        alert(tag_arr);
+
+        let checked = document.querySelectorAll(".checked"), 
+            btnText = document.querySelector(".btn-text");
+
+        if(checked && checked.length > 0){
+            btnText.innerText = `${checked.length} Selected`;
+        }
+        else{
+            btnText.innerText = "Select Language";
+        }
+
     });
-    if(count>3){
-        alert("3개 이상 체크됨");
-        obj.checked=false;
-        result=result.pop();
-        
-    }
+})
 
-    // 출력
-    // document.getElementById('result').innerText = result;
-    // alert(result); //체크된 값 들어가있음
-    tag_result=result;
-    tag_arr.push(result);
-}
+
 
 function addList() {
     const game_name = document.getElementById('game_title').value; //게임명
@@ -49,10 +83,10 @@ function addList() {
 
     const li = document.createElement("li");
 
-    li.setAttribute('tag', tag_result);
+    li.setAttribute('tag', tag_arr);
     li.setAttribute('id', game_name);
     
-    const tagNode = document.createTextNode(tag_result);
+    const tagNode = document.createTextNode(tag_arr);
     const textNode = document.createTextNode(game_name);
 
     li.appendChild(tagNode);
@@ -65,10 +99,22 @@ function addList() {
     const checkboxes=document.getElementsByName('tag');
     checkboxes.forEach((checkbox)=>{
         checkbox.checked=false;
+
+        const item=checkbox.closest('.item');
+        if(item){
+            item.classList.remove("checked");
+        }
     })
     document.getElementById('game_title').value = '';
-    tag_result = '';
+    tag_arr=[];
 }
+
+
+
+
+
+
+
 
 const SDK = window.AFREECA.ext;
 const extensionSDK = SDK();
