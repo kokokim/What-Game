@@ -6,12 +6,11 @@
 }
 
 /* bj_screen */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 *{
     margin: 5px;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
 }
 body{
     background-color:#818FB4;
@@ -112,7 +111,7 @@ body{
 .title_container{
     position: relative;
     float: left;
-    max-width: 370px;
+    max-width: 360px;
     width: 100%;
     margin: 30px auto 30px;
 }
@@ -156,8 +155,27 @@ body{
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     border: none;
 }
+.list_container{
+    position: absolute;
+    max-width: 710px;
+    width: 100%;
+    margin-top: 100px;
+}
 
+#what_game_list > li {
+    height: 120px;
+    align-items: center;
+    padding: 10 16px;
+    margin-top: 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
 
+#what_game_list >li::marker {
+    margin-left: 50px;
+}
 
 
 

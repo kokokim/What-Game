@@ -42,10 +42,10 @@ function addList() {
 
     // li 만들기 전에 각 게임의 li마다 div를 설정하고 싶어요!!!!
     // div 설정해서 그거대로 css 꾸며야해서요
-    const div=document.createElement("div");
-    div.id="game_lists"
+    // const div=document.createElement("div");
+    // div.id="game_lists"
 
-    document.getElementById("what_game_list").appendChild(div);
+    // document.getElementById("what_game_list").appendChild(div);
 
     const li = document.createElement("li");
 
@@ -59,7 +59,7 @@ function addList() {
     li.appendChild(textNode);
     li.appendChild(onoffNode);
 
-    document.getElementById("game_lists").appendChild(li);
+    document.getElementById("what_game_list").appendChild(li);
 
     //체크박스 모두 체크 취소 및 text값 안의 입력값 삭제
     const checkboxes=document.getElementsByName('tag');
