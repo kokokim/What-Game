@@ -24,7 +24,7 @@ items.forEach(item => {
         if(tag_check_box.checked){
             tag_check_box.checked=false;
             
-            alert("체크안됨");
+            // alert("체크안됨");
             //체크하고 다시 체크했을때 해당 value값을 배열에서 빼야함
             const indexToRemove=tag_arr.indexOf(tag_check_box.value);
             if(indexToRemove!==-1){
@@ -35,7 +35,7 @@ items.forEach(item => {
         else{
             if(count<3){
                 tag_check_box.checked=true;
-                alert("체크됨");
+                // alert("체크됨");
                 tag_arr.push(tag_check_box.value);
                 count++;
             }
@@ -44,13 +44,17 @@ items.forEach(item => {
                 item.classList.remove("checked");
             }
         }
-        alert(tag_arr);
+        // alert(tag_arr);
 
         updateButtonText();
     });
 })
 
-
+function delete_list(event){
+    console.dir(event.target.parentNode);
+    const li = event.target.parentNode;
+    li.remove();
+}
 
 function addList() {
     const game_name = document.getElementById('game_title').value; //게임명
@@ -61,6 +65,12 @@ function addList() {
 
     const li = document.createElement("li");
 
+    const Delete_button = document.createElement('input');
+    Delete_button.type = "button";
+    Delete_button.value = "삭제";
+    // Delete_list.
+    Delete_button.addEventListener("click", (delete_list));
+
     li.setAttribute('tag', tag_arr);
     li.setAttribute('id', game_name);
     
@@ -70,6 +80,7 @@ function addList() {
     li.appendChild(tagNode);
     li.appendChild(textNode);
     li.appendChild(onoffNode);
+    li.appendChild(Delete_button);
 
     document.getElementById("what_game_list").appendChild(li);
 
