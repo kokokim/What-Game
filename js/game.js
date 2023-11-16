@@ -44,23 +44,9 @@ items.forEach(item => {
                 item.classList.remove("checked");
             }
         }
-        // if(count>3){
-        //     alert("3개 이상 체크됨");
-        //     item.checked=false;
-        //     // result=result.pop();
-        // }
         alert(tag_arr);
 
-        let checked = document.querySelectorAll(".checked"), 
-            btnText = document.querySelector(".btn-text");
-
-        if(checked && checked.length > 0){
-            btnText.innerText = `${checked.length} Selected`;
-        }
-        else{
-            btnText.innerText = "Select Language";
-        }
-
+        updateButtonText();
     });
 })
 
@@ -72,14 +58,6 @@ function addList() {
     onoffNode.name = "switch";
     onoffNode.type = 'radio';
     onoffNode.id = 'Game_Check';
-    
-
-    // li 만들기 전에 각 게임의 li마다 div를 설정하고 싶어요!!!!
-    // div 설정해서 그거대로 css 꾸며야해서요
-    // const div=document.createElement("div");
-    // div.id="game_lists"
-
-    // document.getElementById("what_game_list").appendChild(div);
 
     const li = document.createElement("li");
 
@@ -104,14 +82,23 @@ function addList() {
         if(item){
             item.classList.remove("checked");
         }
-    })
+    });
+    selectBtn.classList.remove("open");
+    count=0;
+    updateButtonText();
     document.getElementById('game_title').value = '';
     tag_arr=[];
 }
 
-
-
-
+function updateButtonText(){
+    let btnText=document.querySelector(".btn-text");
+    if(count>0){
+        btnText.innerText=`${count} Selected`;
+    }
+    else{
+        btnText.innerText="Select Tags"
+    }
+}
 
 
 
