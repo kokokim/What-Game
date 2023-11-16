@@ -38,7 +38,6 @@ function addList() {
     onoffNode.name = "switch";
     onoffNode.type = 'radio';
     onoffNode.id = 'Game_Check';
-    
 
     // li 만들기 전에 각 게임의 li마다 div를 설정하고 싶어요!!!!
     // div 설정해서 그거대로 css 꾸며야해서요
@@ -80,14 +79,14 @@ function saveData(){
     //태그와 게임이름 체크상태를 send_list에 객체로 생성하고 보냄
     for(let i=0; i < content.length; i++)
     {
-        console.log("반복문 돔");
+        // console.log("반복문 돔");
         send_list.push({
             tag: content[i].getAttribute('tag'),
             name: content[i].getAttribute('id'),
             check: content[i].firstElementChild.checked
         })
     }
-    console.log("반복문끝");
+    // console.log("반복문끝");
     extensionSDK.broadcast.send('game_list', send_list);
     }
 extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
