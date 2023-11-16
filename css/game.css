@@ -1,42 +1,44 @@
 /* bj_screen */
 *{
-    margin: 5px;
-    padding: 0;
     box-sizing: border-box;
     font-family:"Malgun Gothic";
 }
 body{
-    background-color:#818FB4;
+    margin: 0;
 }
 .bj_entire{
     position: relative;
-    max-width: 750px;
-    height: 100%;
+    max-width: 500px;
+    width: 100%;
+    height: 640px;
+    margin: 0 auto;
+    background-color:#818FB4;
 }
 .bj_up_screen{
     position : relative;
-    height: 80px;
+    height: 60px;
 }
 .tag_container{
-    max-width: 280px;
+    max-width: 180px;
     width: 100%;
-    margin: 10px auto 30px 5px;
     float: left;
 }
 .select-btn{
     display: flex;
     height: 40px;
+    width: 160px;
+    margin: 10px 10px 10px 10px;
     align-items: center;
     justify-content: space-between;
-    padding: 0 16px;
+    padding: 0 14px;
     border-radius: 8px;
     cursor: pointer;
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 .select-btn .btn-text{
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 13px;
+    /* font-weight: 400; */
     color: #333;
 }
 .select-btn .arrow-dwn{
@@ -44,7 +46,7 @@ body{
     height: 21px;
     width: 21px;
     color: #fff;
-    font-size: 14px;
+    font-size: 13px;
     border-radius: 50%;
     background: #435585;
     align-items: center;
@@ -56,13 +58,14 @@ body{
 }
 .list-items{
     position: relative;
-    margin-top: 15px;
     border-radius: 8px;
-    padding: 16px;
+    padding: 5px;
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     display: none;
     z-index: 1;
+    width: 160px;
+    margin-left: 10px;
 }
 .select-btn.open ~ .list-items{
     display: block;
@@ -71,19 +74,15 @@ body{
     display: flex;
     align-items: center;
     list-style: none;
-    height: 50px;
+    height: 30px;
     cursor: pointer;
     transition: 0.3s;
-    padding: 0 15px;
+    padding: 0 10px;
     border-radius: 8px;
+    font-size: 13px;
 }
 .list-items .item:hover{
     background-color: #e7edfe;
-}
-.item .item-text{
-    font-size: 15px;
-    font-weight: 400;
-    color: #333;
 }
 .item-text{
     display: none;   
@@ -92,10 +91,10 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 16px;
-    width: 16px;
+    height: 15px;
+    width: 15px;
     border-radius: 4px;
-    margin-right: 12px;
+    margin-right: 10px;
     border: 1.5px solid #c0c0c0;
     transition: all 0.3s ease-in-out;
 }
@@ -105,7 +104,7 @@ body{
 }
 .checkbox .check-icon{
     color: #fff;
-    font-size: 11px;
+    font-size: 9px;
     transform: scale(0);
     transition: all 0.2s ease-in-out;
 }
@@ -115,17 +114,18 @@ body{
 
 .title_container{
     float: left;
-    max-width: 370px;
+    max-width: 245px;
     width: 100%;
-    margin: 10px 10px 30px;
     display: flex;
     align-items: center;
 }
 #game_title {
     height: 40px;
-    width: 280px;
+    width: 160px;
     align-items: center;
-    padding: 0 16px;
+    margin: 10px 10px 10px 0;
+    font-size: 13px;
+    padding: 0 14px;
     border-radius: 8px;
     cursor: pointer;
     background-color: #fff;
@@ -135,7 +135,8 @@ body{
 }
 #add_btn{
     height: 40px;
-    width: 60px;
+    width: 65px;
+    margin: 10px 10px 10px 0;
     align-items: center;
     padding: 0 16px;
     border-radius: 8px;
@@ -143,18 +144,17 @@ body{
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     border: none;
-    font-size: 15px;
-    margin-left: 15px;
+    font-size: 13px;
 }
 .save_container{
-    max-width: 50px;
+    max-width: 75px;
     width: 100%;
-    margin: 10px 0 30px;
     float: left;
 }
 #game_save{
     height: 40px;
     width: 65px;
+    margin: 10px 10px 10px 0;
     align-items: center;
     padding: 0 16px;
     border-radius: 8px;
@@ -162,7 +162,7 @@ body{
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     border: none;
-    font-size: 15px;
+    font-size: 13px;
 }
 .list_container{
     position: absolute;
@@ -171,22 +171,43 @@ body{
 
 #what_game_list > li {
     list-style: none;
-    height: 120px;
+    height: 100px;
     align-items: center;
     border-radius: 8px;
     cursor: pointer;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    margin-bottom: 15px;
-    margin-bottom: 15px;
+    margin: 15px 20px 10px 20px;
 }
-
-#what_game_list >li::marker {
-    margin-left: 50px;
+#img{
+    width: 80px;
+    height: 80px;
+    margin: 10px 20px 10px 20px;
+    float: left;
 }
+#add_gamename{
+    width: 220px;
+    height: 60px;
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 55px;
+    
+}
+#Game_Check{
+    float:left;
+    height: 60px;
+    width: 120px;
 
 
-
+}
+#add_tag{
+    float: left;
+    height: 40px;
+    width: 340px;
+    font-size: 14px;
+    line-height: 10px;
+}
 
 
 
