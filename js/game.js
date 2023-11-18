@@ -56,12 +56,21 @@ function delete_list(event){
     li.remove();
 }
 
+function check_false(event){
+    const li = event.target.parentNode.firstElementChild;
+    // console.log(li);
+    li.checked = false;
+    // console.log(li.checked);
+}
+
 function addList() {
     const game_name = document.getElementById('game_title').value; //게임명
     const onoffNode = document.createElement('input');
     onoffNode.name = "switch";
     onoffNode.type = 'radio';
     onoffNode.id = 'Game_Check';
+    // onoffNode.ondblclick= check_false(this);
+    onoffNode.addEventListener("dblclick", (check_false));
 
     const li = document.createElement("li");
 
