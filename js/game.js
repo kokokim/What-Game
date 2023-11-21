@@ -36,7 +36,7 @@ items.forEach(item => {
             if(count<3){
                 tag_check_box.checked=true;
                 // alert("체크됨");
-                tag_arr.push(tag_check_box.value);
+                tag_arr.push("#"+tag_check_box.value+"  ");
                 count++;
             }
             else{
@@ -65,31 +65,48 @@ function check_false(event){
 
 function addList() {
     const game_name = document.getElementById('game_title').value; //게임명
+
+    //태그 없거나 게임 이름이 적혀있지 않는다면 다시 가서 입력
+    if(!game_name || count==0){
+        alert("게임명을 입력하고 최소 하나의 태그를 선택하세요.");
+        return;
+    }
+    
     const onoffNode = document.createElement('input');
+    // onoffNode.setAttribute('id', 'onoffbtn');
     onoffNode.name = "switch";
     onoffNode.type = 'radio';
     onoffNode.id = 'Game_Check';
-    // onoffNode.ondblclick= check_false(this);
     onoffNode.addEventListener("dblclick", (check_false));
 
     const li = document.createElement("li");
-
     const Delete_button = document.createElement('input');
     Delete_button.type = "button";
-    Delete_button.value = "삭제";
+    Delete_button.value = "✕";
+    Delete_button.id = "delete_list";
     // Delete_list.
     Delete_button.addEventListener("click", (delete_list));
 
-    li.setAttribute('tag', tag_arr);
-    li.setAttribute('id', game_name);
-    
-    const tagNode = document.createTextNode(tag_arr);
-    const textNode = document.createTextNode(game_name);
+    const img = document.createElement('img');
+    img.setAttribute('id', 'img');
 
-    li.appendChild(tagNode);
+    img.src='';
+    img.alt='임시이미지다';
+
+    
+    const tagNode=document.createElement('span');
+    tagNode.setAttribute('id', 'add_tag');
+    tagNode.appendChild(document.createTextNode(tag_arr.join(' ')));
+
+    const textNode = document.createElement('span');
+    textNode.setAttribute('id', 'add_gamename')
+    textNode.appendChild(document.createTextNode(game_name)); // 게임명 값 설정
+
+    li.appendChild(Delete_button);
+    li.appendChild(img);
     li.appendChild(textNode);
     li.appendChild(onoffNode);
-    li.appendChild(Delete_button);
+    li.appendChild(tagNode);
 
     document.getElementById("what_game_list").appendChild(li);
 
@@ -110,6 +127,10 @@ function addList() {
     tag_arr=[];
 }
 
+// addCategoryCheckboxes("Action", ["a", "b", "c"]);
+// addCategoryCheckboxes("Adventure", ["d", "e", "f", "g"]);
+
+
 function updateButtonText(){
     let btnText=document.querySelector(".btn-text");
     if(count>0){
@@ -120,6 +141,33 @@ function updateButtonText(){
     }
 }
 
+// function addCategoryCheckboxes(categoryName, checkboxValues) {
+//   const categoryContainer = document.querySelector(".list-items");
+//   const categoryHeading = document.createElement("div");
+//   categoryHeading.classList.add("category-heading");
+//   categoryHeading.appendChild(document.createTextNode(categoryName));
+//   categoryContainer.appendChild(categoryHeading);
+
+//   checkboxValues.forEach((checkboxValue) => {
+//     const checkboxItem = document.createElement("li");
+//     checkboxItem.classList.add("item");
+
+//     const checkbox = document.createElement("input");
+//     checkbox.type = "checkbox";
+//     checkbox.name = "tag";
+//     checkbox.value = checkboxValue;
+
+//     const checkboxLabel = document.createElement("span");
+//     checkboxLabel.classList.add("checkbox");
+//     checkboxLabel.appendChild(document.createElement("i"));
+//     checkboxLabel.appendChild(document.createTextNode(checkboxValue));
+
+//     checkboxItem.appendChild(checkboxLabel);
+//     checkboxItem.appendChild(checkbox);
+
+//     categoryContainer.appendChild(checkboxItem);
+//   });
+// }
 
 
 

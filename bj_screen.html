@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="css/game.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <title>BJ SCREEN</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,29 +32,30 @@
                     </span>
                 </div>
                 <ul class="list-items">
+                    <p>Action</p>
                     <li class="item">
                         <span class="checkbox">
                             <i class="fa-solid fa-check check-icon"></i>
                         </span>
-                        <input class="item-text" type="checkbox" name="tag" value="a">a
+                        <input class="item-text" type="checkbox" name="tag" value="액션로얄">액션로얄
                     </li>
                     <li class="item">
                         <span class="checkbox">
                             <i class="fa-solid fa-check check-icon"></i>
                         </span>
-                        <input class="item-text" type="checkbox" name="tag" value="b">b
+                        <input class="item-text" type="checkbox" name="tag" value="격투 및 무술">격투 및 무술
                     </li>
                     <li class="item">
                         <span class="checkbox">
                             <i class="fa-solid fa-check check-icon"></i>
                         </span>
-                        <input class="item-text" type="checkbox" name="tag" value="c">c
+                        <input class="item-text" type="checkbox" name="tag" value="핵 앤 슬래시">핵 앤 슬래시
                     </li>
                     <li class="item">
                         <span class="checkbox">
                             <i class="fa-solid fa-check check-icon"></i>
                         </span>
-                        <input class="item-text" type="checkbox" name="tag" value="d">d
+                        <input class="item-text" type="checkbox" name="tag" value="슈팅">슈팅
                     </li>
                     <li class="item">
                         <span class="checkbox">
@@ -60,7 +67,7 @@
             </div>
 
             <div id="name" class="title_container">
-                <input type="text" id="game_title" size="30">
+                <input type="text" id="game_title" size="30" placeholder="Game Title">
                 <input type="button" id="add_btn" value="Add" onclick="addList()"/>
             </div>
 
