@@ -102,7 +102,7 @@ function addList() {
         if(item){
             item.classList.remove("checked");
         }
-    });
+    });A
     selectBtn.classList.remove("open");
     count=0;
     updateButtonText();
