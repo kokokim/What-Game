@@ -235,27 +235,6 @@ body{
 }
 
 
-
-/* #check-btn { display: none; }
-#check-btn:checked ~ .menubars { display: block; } 
-.menubars { display: none; }
-
-#pro_title{
-    text-align: center;
-}
-#pro_img{
-    text-align: center;
-} */
-/* #input_data{
-    float:left;
-    width: 33%;
-} */
-/* #tag_list{
-    line-height: 1em;
-} */
-/* #what_game_list{
-    line-height: 5em;
-} */
  [id="Game_Check"] {
     appearance: none;
     position: relative;
@@ -312,6 +291,7 @@ body{
   } 
 
 
+  
 /* USER SCREEN */
 .user_screen{
     position: relative;
