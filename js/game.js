@@ -80,6 +80,7 @@ function addList() {
     onoffNode.addEventListener("dblclick", (check_false));
 
     const li = document.createElement("li");
+    li.id="gameinfo_list";
     const Delete_button = document.createElement('input');
     Delete_button.type = "button";
     Delete_button.value = "✕";
@@ -90,7 +91,7 @@ function addList() {
     const img = document.createElement('img');
     img.setAttribute('id', 'img');
 
-    img.src='https://cdn-icons-png.flaticon.com/128/6476/6476347.png';
+    img.src='pic/2b2b2b.png';
     img.alt='임시이미지다';
 
     
@@ -130,10 +131,10 @@ function addList() {
 function updateButtonText(){
     let btnText=document.querySelector(".btn-text");
     if(count>0){
-        btnText.innerText=`${count} Selected`;
+        btnText.innerText=`${count}개 선택`;
     }
     else{
-        btnText.innerText="Select Tags"
+        btnText.innerText="태그를 선택하세요"
     }
 }
 
