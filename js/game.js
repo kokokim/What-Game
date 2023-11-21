@@ -90,7 +90,7 @@ function addList() {
     const img = document.createElement('img');
     img.setAttribute('id', 'img');
 
-    img.src='';
+    img.src='https://cdn-icons-png.flaticon.com/128/6476/6476347.png';
     img.alt='임시이미지다';
 
     
@@ -127,10 +127,6 @@ function addList() {
     tag_arr=[];
 }
 
-// addCategoryCheckboxes("Action", ["a", "b", "c"]);
-// addCategoryCheckboxes("Adventure", ["d", "e", "f", "g"]);
-
-
 function updateButtonText(){
     let btnText=document.querySelector(".btn-text");
     if(count>0){
@@ -140,36 +136,6 @@ function updateButtonText(){
         btnText.innerText="Select Tags"
     }
 }
-
-// function addCategoryCheckboxes(categoryName, checkboxValues) {
-//   const categoryContainer = document.querySelector(".list-items");
-//   const categoryHeading = document.createElement("div");
-//   categoryHeading.classList.add("category-heading");
-//   categoryHeading.appendChild(document.createTextNode(categoryName));
-//   categoryContainer.appendChild(categoryHeading);
-
-//   checkboxValues.forEach((checkboxValue) => {
-//     const checkboxItem = document.createElement("li");
-//     checkboxItem.classList.add("item");
-
-//     const checkbox = document.createElement("input");
-//     checkbox.type = "checkbox";
-//     checkbox.name = "tag";
-//     checkbox.value = checkboxValue;
-
-//     const checkboxLabel = document.createElement("span");
-//     checkboxLabel.classList.add("checkbox");
-//     checkboxLabel.appendChild(document.createElement("i"));
-//     checkboxLabel.appendChild(document.createTextNode(checkboxValue));
-
-//     checkboxItem.appendChild(checkboxLabel);
-//     checkboxItem.appendChild(checkbox);
-
-//     categoryContainer.appendChild(checkboxItem);
-//   });
-// }
-
-
 
 const SDK = window.AFREECA.ext;
 const extensionSDK = SDK();
