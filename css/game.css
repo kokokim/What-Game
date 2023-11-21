@@ -16,7 +16,9 @@ body{
 }
 .bj_up_screen{
     position : relative;
-    height: 60px;
+    max-width: 490px;
+    background-color: aqua;
+    height: 70px;
 }
 .tag_container{
     max-width: 180px;
@@ -27,7 +29,7 @@ body{
     display: flex;
     height: 40px;
     width: 160px;
-    margin: 10px 10px 10px 10px;
+    margin: 20px 10px 10px 10px;
     align-items: center;
     justify-content: space-between;
     padding: 0 14px;
@@ -37,7 +39,7 @@ body{
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 .select-btn .btn-text{
-    font-size: 13px;
+    font-size: 12px;
     /* font-weight: 400; */
     color: #333;
 }
@@ -46,7 +48,7 @@ body{
     height: 21px;
     width: 21px;
     color: #fff;
-    font-size: 13px;
+    font-size: 12px;
     border-radius: 50%;
     background: #435585;
     align-items: center;
@@ -74,12 +76,12 @@ body{
     display: flex;
     align-items: center;
     list-style: none;
-    height: 30px;
+    height: 25px;
     cursor: pointer;
     transition: 0.3s;
-    padding: 0 10px;
+    padding: 0 8px;
     border-radius: 8px;
-    font-size: 13px;
+    font-size: 10px;
 }
 .list-items .item:hover{
     background-color: #e7edfe;
@@ -94,7 +96,7 @@ body{
     height: 15px;
     width: 15px;
     border-radius: 4px;
-    margin-right: 10px;
+    margin-right: 8px;
     border: 1.5px solid #c0c0c0;
     transition: all 0.3s ease-in-out;
 }
@@ -123,8 +125,8 @@ body{
     height: 40px;
     width: 160px;
     align-items: center;
-    margin: 10px 10px 10px 0;
-    font-size: 13px;
+    margin: 20px 10px 10px 0;
+    font-size: 12px;
     padding: 0 14px;
     border-radius: 8px;
     cursor: pointer;
@@ -135,8 +137,8 @@ body{
 }
 #add_btn{
     height: 40px;
-    width: 65px;
-    margin: 10px 10px 10px 0;
+    width: 55px;
+    margin: 20px 10px 10px 0;
     align-items: center;
     padding: 0 16px;
     border-radius: 8px;
@@ -144,17 +146,17 @@ body{
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     border: none;
-    font-size: 13px;
+    font-size: 12px;
 }
 .save_container{
-    max-width: 75px;
+    max-width: 65px;
     width: 100%;
     float: left;
 }
 #game_save{
     height: 40px;
-    width: 65px;
-    margin: 10px 10px 10px 0;
+    width: 55px;
+    margin: 20px 10px 10px 0;
     align-items: center;
     padding: 0 16px;
     border-radius: 8px;
@@ -162,7 +164,7 @@ body{
     background-color: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     border: none;
-    font-size: 13px;
+    font-size: 12px;
 }
 .list_container{
     position: absolute;
@@ -214,7 +216,7 @@ body{
     float: left;
     height: 40px;
     width: 310px;
-    font-size: 14px;
+    font-size: 11px;
     line-height: 10px;
 }
 

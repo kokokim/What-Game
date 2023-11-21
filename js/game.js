@@ -33,7 +33,7 @@ items.forEach(item => {
             count--;
         }
         else{
-            if(count<3){
+            if(count<4){
                 tag_check_box.checked=true;
                 // alert("체크됨");
                 tag_arr.push("#"+tag_check_box.value+"  ");
