@@ -57,7 +57,7 @@ function delete_list(event){
 }
 
 function check_false(event){
-    const li = event.target.parentNode.firstElementChild;
+    const li = event.target;
     // console.log(li);
     li.checked = false;
     // console.log(li.checked);
@@ -119,7 +119,7 @@ function addList() {
         if(item){
             item.classList.remove("checked");
         }
-    });A
+    });
     selectBtn.classList.remove("open");
     count=0;
     updateButtonText();
