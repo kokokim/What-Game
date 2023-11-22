@@ -234,63 +234,6 @@ body{
     font-size: 12px;
 }
 
-
- [id="Game_Check"] {
-    appearance: none;
-    position: relative;
-    border: max(2px, 0.1em) solid gray;
-    border-radius: 1.25em;
-    width: 2.25em;
-    height: 1.25em;
-  }
-  
-  [id="Game_Check"]::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 1em;
-    height: 1em;
-    border-radius: 50%;
-    transform: scale(0.8);
-    background-color: gray;
-    transition: left 250ms linear;
-  }
-  
-  [id="Game_Check"]:checked {
-    background-color: tomato;
-    border-color: tomato;
-  }
-  
-  [id="Game_Check"]:checked::before {
-    background-color: white;
-    left: 1em;
-  }
-  
-  [id="Game_Check"]:disabled {
-    border-color: lightgray;
-    opacity: 0.7;
-    cursor: not-allowed;
-  }
-  
-  [id="Game_Check"]:disabled:before {
-    background-color: lightgray;
-  }
-  
-  [id="Game_Check"]:disabled + span {
-    opacity: 0.7;
-    cursor: not-allowed;
-  }
-  
-  [id="Game_Check"]:focus-visible {
-    outline-offset: max(2px, 0.1em);
-    outline: max(2px, 0.1em) solid tomato;
-  }
-  
-  [id="Game_Check"]:enabled:hover {
-    box-shadow: 0 0 0 max(4px, 0.2em) lightgray;
-  } 
-
-
   
 /* USER SCREEN */
 .user_screen{
@@ -317,4 +260,112 @@ hr{
     width: 70%;
     height: 3px;
     background-color: #fff;
+}
+
+
+/* 여기부터 새로운 토글 실험 */
+
+.tg-list-item {
+	margin: 0 2em;
+}
+
+.tgl {
+	display: none;
+	&,
+    &:after,
+    &:before,
+	& *,
+    & *:after,
+    & *:before,
+	& + .tgl-btn {
+		box-sizing: border-box;
+		&::selection {
+			background: none;
+		}
+	}
+  
+	+ .tgl-btn {
+		outline: 0;
+		display: block;
+		width: 4em;
+		height: 2em;
+		position: relative;
+		cursor: pointer;
+    user-select: none;
+		&:after,
+    &:before {
+			position: relative;
+			display: block;
+			content: "";
+			width: 50%;
+			height: 100%;
+		}
+    
+		&:after {
+			left: 0;
+		}
+    
+		&:before {
+			display: none;
+		}
+	}
+  
+	&:checked + .tgl-btn:after {
+		left: 50%;
+	}
+}
+.tgl-skewed {
+	+ .tgl-btn {
+		overflow: hidden;
+		transform: skew(-10deg);
+		backface-visibility: hidden;
+		transition: all .2s ease;
+		font-family: sans-serif;
+		background: #888;
+		&:after,
+    &:before {
+			transform: skew(10deg);
+			display: inline-block;
+			transition: all .2s ease;
+			width: 100%;
+			text-align: center;
+			position: absolute;
+			line-height: 2em;
+			font-weight: bold;
+			color: #fff;
+			text-shadow: 0 1px 0 rgba(0,0,0,.4);
+		}
+    
+		&:after {
+			left: 100%;
+			content: attr(data-tg-on);
+		}
+    
+		&:before {
+			left: 0;
+			content: attr(data-tg-off);
+		}
+    
+		&:active {
+			background: #888;
+			&:before {
+				left: -10%;
+			}
+		}
+	}
+  
+	&:checked + .tgl-btn {
+    background: #86d993;
+    &:before {
+      left: -100%;
+    }
+
+    &:after {
+      left: 0;
+    }
+
+    &:active:after {
+      left: 10%;
+    }
+	}
 }
