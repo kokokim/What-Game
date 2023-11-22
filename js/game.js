@@ -33,7 +33,7 @@ items.forEach(item => {
             count--;
         }
         else{
-            if(count<3){
+            if(count<4){
                 tag_check_box.checked=true;
                 // alert("체크됨");
                 tag_arr.push("#"+tag_check_box.value+"  ");
@@ -95,6 +95,7 @@ function addList() {
     onoffNode.addEventListener("dblclick", (check_false));
 
     const li = document.createElement("li");
+    li.id="gameinfo_list";
     const Delete_button = document.createElement('input');
     Delete_button.type = "button";
     Delete_button.value = "✕";
@@ -105,7 +106,7 @@ function addList() {
     const img = document.createElement('img');
     img.setAttribute('id', 'img');
 
-    img.src='';
+    img.src='pic/2b2b2b.png';
     img.alt='임시이미지다';
 
     
@@ -142,49 +143,15 @@ function addList() {
     tag_arr=[];
 }
 
-// addCategoryCheckboxes("Action", ["a", "b", "c"]);
-// addCategoryCheckboxes("Adventure", ["d", "e", "f", "g"]);
-
-
 function updateButtonText(){
     let btnText=document.querySelector(".btn-text");
     if(count>0){
-        btnText.innerText=`${count} Selected`;
+        btnText.innerText=`${count}개 선택`;
     }
     else{
-        btnText.innerText="Select Tags"
+        btnText.innerText="태그를 선택하세요"
     }
 }
-
-// function addCategoryCheckboxes(categoryName, checkboxValues) {
-//   const categoryContainer = document.querySelector(".list-items");
-//   const categoryHeading = document.createElement("div");
-//   categoryHeading.classList.add("category-heading");
-//   categoryHeading.appendChild(document.createTextNode(categoryName));
-//   categoryContainer.appendChild(categoryHeading);
-
-//   checkboxValues.forEach((checkboxValue) => {
-//     const checkboxItem = document.createElement("li");
-//     checkboxItem.classList.add("item");
-
-//     const checkbox = document.createElement("input");
-//     checkbox.type = "checkbox";
-//     checkbox.name = "tag";
-//     checkbox.value = checkboxValue;
-
-//     const checkboxLabel = document.createElement("span");
-//     checkboxLabel.classList.add("checkbox");
-//     checkboxLabel.appendChild(document.createElement("i"));
-//     checkboxLabel.appendChild(document.createTextNode(checkboxValue));
-
-//     checkboxItem.appendChild(checkboxLabel);
-//     checkboxItem.appendChild(checkbox);
-
-//     categoryContainer.appendChild(checkboxItem);
-//   });
-// }
-
-
 
 const SDK = window.AFREECA.ext;
 const extensionSDK = SDK();

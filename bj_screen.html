@@ -26,60 +26,56 @@
         <div class="bj_up_screen">
             <div class="tag_container">
                 <div class="select-btn">
-                    <span class="btn-text">Select Tags</span>
+                    <span class="btn-text">태그를 선택하세요</span>
                     <span class="arrow-dwn">
                         <i class="fa-solid fa-chevron-down"></i>
                     </span>
                 </div>
-                <ul class="list-items"> 
-                    <p>Action</p>
+                <ul class="list-items">
                     <li class="item">
                         <span class="checkbox">
                             <i class="fa-solid fa-check check-icon"></i>
                         </span>
-                        <input class="item-text" type="checkbox" name="tag" value="액션로얄">액션로얄
+                        <input class="item-text" type="checkbox" name="tag" value="가족">가족
                     </li>
                     <li class="item">
                         <span class="checkbox">
                             <i class="fa-solid fa-check check-icon"></i>
                         </span>
-                        <input class="item-text" type="checkbox" name="tag" value="격투 및 무술">격투 및 무술
+                        <input class="item-text" type="checkbox" name="tag" value="레이싱">레이싱
                     </li>
                     <li class="item">
                         <span class="checkbox">
                             <i class="fa-solid fa-check check-icon"></i>
                         </span>
-                        <input class="item-text" type="checkbox" name="tag" value="핵 앤 슬래시">핵 앤 슬래시
+                        <input class="item-text" type="checkbox" name="tag" value="롤플레잉">롤플레잉
                     </li>
                     <li class="item">
                         <span class="checkbox">
                             <i class="fa-solid fa-check check-icon"></i>
                         </span>
-                        <input class="item-text" type="checkbox" name="tag" value="슈팅">슈팅
+                        <input class="item-text" type="checkbox" name="tag" value="보드">보드
                     </li>
                     <li class="item">
                         <span class="checkbox">
                             <i class="fa-solid fa-check check-icon"></i>
                         </span>
-                        <input class="item-text" type="checkbox" name="tag" value="e">e
+                        <input class="item-text" type="checkbox" name="tag" value="스포츠">스포츠
                     </li>
                 </ul>
             </div>
-
             <div id="name" class="title_container">
-                <input type="text" id="game_title" size="30" placeholder="Game Title">
-                <input type="button" id="add_btn" value="Add" onclick="addList()"/>
-            </div>
-
-            <div id="save" class="save_container">
-                <input type="button" id="game_save" value="Save" onclick="saveData()">
+                <input type="text" id="game_title" size="30" placeholder="게임명을 입력하세요">
+                <input type="button" id="add_btn" value="+" onclick="addList()"/>
             </div>
         </div>
-
-        <div id="list" class="list_container">
+        <div id="list">
             <ol id="what_game_list">
 
             </ol>
+        </div>
+        <div id="save">
+            <input type="button" id="game_save" value="저장" onclick="saveData()">
         </div>
     </div>
     <script src="js/game.js"></script>
