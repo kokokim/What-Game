@@ -61,28 +61,6 @@ function updateButtonText(){
     }
 }
 
-function toggleTextbox(obj)
-{
-    const checkbox = obj.children;
-    const game_title_box = document.getElementById('game_title');
-    var count = 0;
-    for(var i = 0; i< checkbox.length; i++)
-    {
-        if(checkbox[i].attributes.class.nodeValue == "item checked")
-        {
-            count++;
-        }
-    }
-    game_title_box.disabled = count ? 0 : !0;
-    if(game_title_box.disabled)
-    {
-        game_title_box.value = null;
-    }
-    else{
-        game_title_box.focus();
-    }
-}
-
 function delete_list(event){
     console.dir(event.target.parentNode);
     const li = event.target.parentNode;
@@ -90,36 +68,27 @@ function delete_list(event){
 }
 
 function check_false(event){
-    const li = event.target.attributes.for.nodeValue;
-    const radiobuttonfalse = document.getElementById(li);
-    radiobuttonfalse.checked = false;
+    const li = event.target.parentNode.firstElementChild;
+    // console.log(li);
+    li.checked = false;
+    // console.log(li.checked);
 }
+
 function addList() {
     const game_name = document.getElementById('game_title').value; //게임명
 
-    const timestamp = new Date().getTime();
-    const rdiobuttonId = "Game_Check_" + timestamp;
     //태그 없거나 게임 이름이 적혀있지 않는다면 다시 가서 입력
-    // if(!game_name || count==0){
-    //     alert("게임명을 입력하고 최소 하나의 태그를 선택하세요.");
-    //     return;
-    // }
+    if(!game_name || count==0){
+        alert("게임명을 입력하고 최소 하나의 태그를 선택하세요.");
+        return;
+    }
     
-    // const togglenode = document.createElement('li');
-    // togglenode.setAttribute('class', 'tg-list-item');
-
-    const radiobutton = document.createElement('input');
-    radiobutton.className = "tgl tgl-skewed";
-    radiobutton.name = "switch";
-    radiobutton.type = "radio";
-    radiobutton.id = rdiobuttonId;
-
-    const togglelabel = document.createElement("label");
-    togglelabel.className = "tgl-btn";
-    togglelabel.setAttribute('data-tg-off', "OFF");
-    togglelabel.setAttribute('data-tg-on', "ON");
-    togglelabel.setAttribute('for', rdiobuttonId);
-    togglelabel.addEventListener("dblclick", (check_false));
+    const onoffNode = document.createElement('input');
+    // onoffNode.setAttribute('id', 'onoffbtn');
+    onoffNode.name = "switch";
+    onoffNode.type = 'radio';
+    onoffNode.id = 'Game_Check';
+    onoffNode.addEventListener("dblclick", (check_false));
 
     const li = document.createElement("li");
     li.id="gameinfo_list";
@@ -127,6 +96,7 @@ function addList() {
     Delete_button.type = "button";
     Delete_button.value = "✕";
     Delete_button.id = "delete_list";
+    // Delete_list.
     Delete_button.addEventListener("click", (delete_list));
 
     const img = document.createElement('img');
@@ -147,8 +117,7 @@ function addList() {
     li.appendChild(Delete_button);
     li.appendChild(img);
     li.appendChild(textNode);
-    li.appendChild(radiobutton);
-    li.appendChild(togglelabel);
+    li.appendChild(onoffNode);
     li.appendChild(tagNode);
 
     document.getElementById("what_game_list").appendChild(li);
