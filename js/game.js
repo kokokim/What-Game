@@ -52,10 +52,20 @@ items.forEach(item => {
 
 function toggleTextbox(obj)
 {
-    const checkbox = obj.lastElementChild;
+    const checkbox = obj.children;
     const game_title_box = document.getElementById('game_title');
-    // console.log(game_title_box);
-    game_title_box.disabled = checkbox.checked ? true : false;
+    var count = 0;
+    for(var i = 0; i< checkbox.length; i++)
+    {
+        console.log(checkbox[i].attributes.class.nodeValue);
+        if(checkbox[i].attributes.class.nodeValue == "item checked")
+        {
+            count++;
+        }
+    }
+    game_title_box.disabled = count ? 0 : !0;
+    console.log(game_title_box);
+    console.log(count);
     if(game_title_box.disabled)
     {
         game_title_box.value = null;

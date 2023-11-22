@@ -31,7 +31,7 @@
                         <i class="fa-solid fa-chevron-down"></i>
                     </span>
                 </div>
-                <ul class="list-items">
+                <ul class="list-items" onclick="toggleTextbox(this)">
                     <li class="item">
                         <span class="checkbox">
                             <i class="fa-solid fa-check check-icon"></i>
@@ -65,7 +65,7 @@
                 </ul>
             </div>
             <div id="name" class="title_container">
-                <input type="text" id="game_title" size="30" placeholder="게임명을 입력하세요">
+                <input type="text" id="game_title" disabled size="30" placeholder="게임명을 입력하세요">
                 <input type="button" id="add_btn" value="+" onclick="addList()"/>
             </div>
         </div>
