@@ -26,10 +26,11 @@ items.forEach(item => {
             
             // alert("체크안됨");
             //체크하고 다시 체크했을때 해당 value값을 배열에서 빼야함
-            const indexToRemove=tag_arr.indexOf(tag_check_box.value);
+            const indexToRemove=tag_arr.indexOf("#"+tag_check_box.value+"  ");
             if(indexToRemove!==-1){
                 tag_arr.splice(indexToRemove, 1);
             }
+            // alert("삭제후"+tag_arr);
             count--;
         }
         else{
@@ -40,7 +41,7 @@ items.forEach(item => {
                 count++;
             }
             else{
-                alert("3개 이상 체크됨. 더이상 체크 불가");
+                alert("4개 이상 체크됨. 더이상 체크 불가");
                 item.classList.remove("checked");
             }
         }
@@ -49,6 +50,16 @@ items.forEach(item => {
         updateButtonText();
     });
 })
+
+function updateButtonText(){
+    let btnText=document.querySelector(".btn-text");
+    if(count>0){
+        btnText.innerText=`${count}개 선택`;
+    }
+    else{
+        btnText.innerText="태그를 선택하세요"
+    }
+}
 
 function delete_list(event){
     console.dir(event.target.parentNode);
@@ -128,16 +139,6 @@ function addList() {
     tag_arr=[];
 }
 
-function updateButtonText(){
-    let btnText=document.querySelector(".btn-text");
-    if(count>0){
-        btnText.innerText=`${count}개 선택`;
-    }
-    else{
-        btnText.innerText="태그를 선택하세요"
-    }
-}
-
 const SDK = window.AFREECA.ext;
 const extensionSDK = SDK();
 function saveData(){
@@ -163,4 +164,3 @@ extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
     saveData();
     //이게 실행해서 아프리카sdk사용을 위한 초기화가 진행되고 saveData가 실행됨
 });
-
