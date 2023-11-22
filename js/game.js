@@ -50,6 +50,21 @@ items.forEach(item => {
     });
 })
 
+function toggleTextbox(obj)
+{
+    const checkbox = obj.lastElementChild;
+    const game_title_box = document.getElementById('game_title');
+    // console.log(game_title_box);
+    game_title_box.disabled = checkbox.checked ? true : false;
+    if(game_title_box.disabled)
+    {
+        game_title_box.value = null;
+    }
+    else{
+        game_title_box.focus();
+    }
+}
+
 function delete_list(event){
     console.dir(event.target.parentNode);
     const li = event.target.parentNode;
