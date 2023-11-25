@@ -3,75 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://static.afreecatv.com/asset/app/extension-helper/afreecatv-extension-sdk.js"></script>
-    <!-- <script src="js/game.js"></script> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/user.css">
     <title>USER SCREEN</title>
 </head>
 
 <body>
+    <script src = "js/user_screen.js"></script>
     <div class="user_screen">
-        <img src="pic/game.png" alt="icon" class="user_pic">
-        <p class="user_title">GAME_INFO</p>
-        <hr/>
-        <div id="u_list">
-            <ul id="u_game_list"> 
+        <div id="list">
+            <ul id="what_game_list"> 
             </ul>
         </div>
     </div>
-
-    <script>
-        const SDK = window.AFREECA.ext;
-        const extensionSDK = SDK();
-
-        var listen_data;
-//sdk를 초기화하고 bj가 보낸 데이터를 수신
-        extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
-            extensionSDK.broadcast.listen(function(action, message) {
-                listen_data = message;
-                console.log(listen_data);
-                reload_game_list(listen_data);
-            });
-        });
-        function reload_game_list(listen_data){
-
-            const gameList = document.getElementById("u_game_list");
-
-            while(gameList.firstChild)
-            {
-                gameList.removeChild(gameList.firstChild);
-            }
-
-            for(let i = 0; i<listen_data.length; i++)
-            {
-                const onoffNode = document.createElement('input');
-                onoffNode.name = "switch";
-                onoffNode.type = 'radio';
-                onoffNode.id = 'Game_Check';
-                onoffNode.disabled = 'disabled';
-
-                const li = document.createElement("li");
-                const tag = document.createTextNode(listen_data[i].tag);
-                const name = document.createTextNode(listen_data[i].name);
-                const check = listen_data[i].check;
-                console.log(tag, name, check);
-                if(check == true)
-                {
-                    onoffNode.checked = true;
-                }
-                else
-                {
-                    onoffNode.checked = false;
-                }
-                li.setAttribute('tag', tag);
-                li.setAttribute('name', name);
-
-                li.appendChild(tag);
-                li.appendChild(name);
-                li.appendChild(onoffNode);
-                document.getElementById("u_game_list").appendChild(li);
-            }
-        }
-    </script>
 </body>
 </html>

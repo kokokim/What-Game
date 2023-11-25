@@ -173,20 +173,20 @@ const SDK = window.AFREECA.ext;
 const extensionSDK = SDK();
 function saveData(){
 
-    const alldiv = document.getElementById('list');
+    const alldiv = document.getElementById('what_game_list');
     const content = alldiv.getElementsByTagName('li');
+
     var send_list = [];
     //태그와 게임이름 체크상태를 send_list에 객체로 생성하고 보냄
     for(let i=0; i < content.length; i++)
     {
-        // console.log("반복문 돔");
+        const list = content[i].childNodes;
         send_list.push({
-            tag: content[i].getAttribute('tag'),
-            name: content[i].getAttribute('id'),
-            check: content[i].firstElementChild.checked
-        })
+            tag: list[5].innerText,
+            name: list[2].innerText,
+            check: list[3].checked
+        });
     }
-    // console.log("반복문끝");
     extensionSDK.broadcast.send('game_list', send_list);
     }
 extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
