@@ -14,14 +14,13 @@ extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
 function reload_game_list(listen_data){
 
     const gameList = document.getElementById("gameinfo_list");
-
-    // console.log("함수까진 들어옴");
     console.log(gameList);
-    while(gameList != null)
+
+    if(gameList != null)
     {
-        gameList.removeChild(gameList.firstChild);
-        
+        gameList.remove();   
     }
+    
     for(let i = 0; i<listen_data.length; i++)
     {
         const timestamp = new Date().getTime();
@@ -33,7 +32,7 @@ function reload_game_list(listen_data){
         radiobutton.type = "radio";
         radiobutton.checked = listen_data[i].check;
         radiobutton.id = rdiobuttonId;
-        radiobutton.disabled = true;
+        // radiobutton.disabled = true;
 
         const togglelabel = document.createElement("label");
         togglelabel.className = "tgl-btn";

@@ -106,7 +106,7 @@ function addList() {
     const togglelabel = document.createElement("label");
     togglelabel.className = "tgl-btn";
     togglelabel.setAttribute('data-tg-off', "OFF");
-    togglelabel.setAttribute('data-tg-on', "ON");
+    togglelabel.setAttribute('data-tg-on', "ON");11
     togglelabel.setAttribute('for', rdiobuttonId);
     togglelabel.addEventListener("dblclick", (check_false));
 
