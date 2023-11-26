@@ -25,7 +25,7 @@ items.forEach(item => {
             tag_check_box.checked=false;
             
             //체크하고 다시 체크했을때 해당 value값을 배열에서 빼야함
-            const indexToRemove=tag_arr.indexOf("#"+tag_check_box.value+" ");
+            const indexToRemove=tag_arr.indexOf("#"+tag_check_box.value+"   ");
             if(indexToRemove!==-1){
                 tag_arr.splice(indexToRemove, 1);
             }
@@ -132,9 +132,7 @@ function addList() {
     const img = document.createElement('img');
     img.setAttribute('id', 'img');
 
-    img.src='pic/2b2b2b.png';
-    img.alt='임시이미지다';
-
+    img.src='pic/aficon.gif';
     
     const tagNode=document.createElement('span');
     tagNode.setAttribute('id', 'add_tag');
@@ -202,7 +200,6 @@ function saveData(){
     extensionSDK.broadcast.send('game_list', send_list);
     }
 extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
-    console.log(send_list);
     saveData();
     //이게 실행해서 아프리카sdk사용을 위한 초기화가 진행되고 saveData가 실행됨
 });

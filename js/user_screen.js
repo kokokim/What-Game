@@ -46,22 +46,8 @@ function reload_game_list(listen_data){
         const img = document.createElement('img');
         img.setAttribute('id', 'img');
 
-        img.src='pic/2b2b2b.png';
-        img.alt='임시이미지다';
-        
-        /*const tag = document.createTextNode(listen_data[i].tag);
-        const name = document.createTextNode(listen_data[i].name);
-        //const check = listen_data[i].check;
-        console.log(tag, name, check);*/
+        img.src='pic/aficon.gif';
 
-        /*if(check == true)
-        {
-            onoffNode.checked = true;
-        }
-        else
-        {
-            onoffNode.checked = false;
-        }*/
         const tagNode = document.createElement('span');
         tagNode.setAttribute('id', 'add_tag');
 
@@ -107,8 +93,7 @@ function testList(){
         const img = document.createElement('img');
         img.setAttribute('id', 'img');
 
-        img.src='pic/2b2b2b.png';
-        img.alt='임시이미지다';
+        img.src='pic/aficon.gif';
 
         const tagNode = document.createElement('span');
         tagNode.setAttribute('id', 'add_tag');
