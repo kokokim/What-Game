@@ -234,7 +234,7 @@ body{
 /* 여기부터 새로운 토글 실험 */
 
 .tg-list-item {
-	margin: 0 2em;
+   margin: 0 2em;
 }
 .tgl {
     display: none;
