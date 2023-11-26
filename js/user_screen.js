@@ -32,14 +32,13 @@ function reload_game_list(listen_data){
         radiobutton.type = "radio";
         radiobutton.checked = listen_data[i].check;
         radiobutton.id = rdiobuttonId;
-        // radiobutton.disabled = true;
+        radiobutton.disabled = true;
 
         const togglelabel = document.createElement("label");
         togglelabel.className = "tgl-btn";
         togglelabel.setAttribute('data-tg-off', "OFF");
         togglelabel.setAttribute('data-tg-on', "ON");
         togglelabel.setAttribute('for', rdiobuttonId);
-        togglelabel.disabled = true;
 
         const li = document.createElement("li");
         li.id="gameinfo_list";
@@ -93,13 +92,14 @@ function testList(){
         radiobutton.type = "radio";
         radiobutton.checked = false;
         radiobutton.id = rdiobuttonId;
+        radiobutton.disabled = true;
 
         const togglelabel = document.createElement("label");
         togglelabel.className = "tgl-btn";
         togglelabel.setAttribute('data-tg-off', "OFF");
         togglelabel.setAttribute('data-tg-on', "ON");
         togglelabel.setAttribute('for', rdiobuttonId);
-        togglelabel.disabled = true;
+        // togglelabel.disabled = true;
 
         const li = document.createElement("li");
         li.id="gameinfo_list";
