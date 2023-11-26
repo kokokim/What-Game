@@ -34,7 +34,7 @@ items.forEach(item => {
         else{
             if(count<4){
                 tag_check_box.checked=true;
-                tag_arr.push("#"+tag_check_box.value+"  ");
+                tag_arr.push("#"+tag_check_box.value+"   ");
                 count++;
             }
             else{
