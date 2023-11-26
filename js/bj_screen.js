@@ -1,6 +1,7 @@
 // bj_screen
 var tag_arr=[];
 var gamename_arr=[];
+let licount=0;
 
 
 //버튼 클릭시 메뉴바 열림
@@ -76,6 +77,8 @@ function delete_list(event){
     console.dir(event.target.parentNode);
     const li = event.target.parentNode;
     li.remove();
+    licount--;
+    alert("몇개?"+licount);
 }
 
 function check_false(event){
@@ -83,12 +86,36 @@ function check_false(event){
     const radiobuttonfalse = document.getElementById(li);
     radiobuttonfalse.checked = false;
 }
+
 function addList() {
     const game_name = document.getElementById('game_title').value; //게임명
 
     const timestamp = new Date().getTime();
     const rdiobuttonId = "Game_Check_" + timestamp;
     //태그 없거나 게임 이름이 적혀있지 않는다면 다시 가서 입력
+    if(licount<4){
+        alert("몇개?"+licount);
+        licount++;
+    }
+    else{
+        alert("no몇개?"+licount);
+        const checkboxes=document.getElementsByName('tag');
+        checkboxes.forEach((checkbox)=>{
+            checkbox.checked=false;
+
+            const item=checkbox.closest('.item');
+            if(item){
+                item.classList.remove("checked");
+            }
+        });
+        selectBtn.classList.remove("open");
+        count=0;
+        updateButtonText();
+        document.getElementById('game_title').value = '';
+        tag_arr=[];
+        return;
+    }
+
     // if(!game_name || count==0){
     //     alert("게임명을 입력하고 최소 하나의 태그를 선택하세요.");
     //     return;
