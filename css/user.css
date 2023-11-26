@@ -1,3 +1,5 @@
+
+
 *{
     box-sizing: border-box;
     font-family:"Malgun Gothic";
@@ -68,7 +70,7 @@ hr{
     border-radius: 70%;
 }
 #add_gamename{
-    width: 220px;
+    width: 200px;
     height: 80px;
     float: left;
     font-size: 15px;
