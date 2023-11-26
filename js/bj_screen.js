@@ -30,6 +30,8 @@ items.forEach(item => {
             if(indexToRemove!==-1){
                 tag_arr.splice(indexToRemove, 1);
             }
+            // alert("삭제후"+tag_arr);
+            // alert("삭제후"+tag_arr);
             count--;
         }
         else{
@@ -40,15 +42,13 @@ items.forEach(item => {
                 count++;
             }
             else{
-                alert("3개 이상 체크됨. 더이상 체크 불가");
                 item.classList.remove("checked");
             }
         }
-        // alert(tag_arr);
-
         updateButtonText();
     });
 })
+
 
 function toggleTextbox(obj)
 {
