@@ -6,36 +6,18 @@
 }
 body{
     margin: 0;
+    padding: 10px;
 }
 .user_screen{
     position: relative;
     max-width: 233px;
     width: 100%;
-    height: 734px;
+    height: 500px;
     background-color: #f7f8f9;
 }
-.user_pic{
-
-    float: left;
-    max-width: 40px;
-    width: 100%;
-}
-.user_title{
-    font-size: 23px;
-    margin-top: 8px;
-    font-weight: bold;
-    float: left;
-}
-hr{
-    clear: both;
-    width: 70%;
-    height: 3px;
-    background-color: #fff;
-}
-
 #list{
     position: static;
-    max-height: 510px;
+    max-height: 500px;
     height: 100%;
     overflow-y: auto;
     max-width: 500px;
@@ -43,44 +25,39 @@ hr{
 }
 #gameinfo_list {
     list-style: none;
-    height: 81px;
+    height: 90px;
     align-items: center;
     border-radius: 8px;
     cursor: pointer;
-    /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     margin: 10px 10px 30px 10px;
 }
 #img{
-    width: 20px;
-    height: 20px;
-    margin: 10px 10px 30px 10px;
+    width: 25px;
+    height: 25px;
+    margin: 15px 5px 41px 10px;
     float: left;
     border-radius: 70%;
 }
 #add_gamename{
     width: 140px;
-    height: 40px;
+    height: 43px;
     float: left;
-    font-size: 15px;
-    line-height: 50px;
+    font-size: 13px;
+    line-height: 52px;
+    padding-left: 5px;
     
 }
-/* #Game_Check{
-    float:right;
-    /* height: 60px;
-    width: 70px;
-} */
 #add_tag{
     float: left;
-    height: 20px;
-    width: 185px;
+    height: 38px;
+    width: 163px;
     background-color: #e8ebed;
     font-size: 11px;
     line-height: 20px;
     border-radius: 8px 8px 8px 8px;
     padding: 0px 0 0 10px;
-    margin: 0px 0px 10px 30px;
 }
 
 
@@ -112,13 +89,13 @@ hr{
 .tgl + .tgl-btn {
     outline: 0;
     display: block;
-    width: 30px;
-    height: 25px;
+    width: 32px;
+    height: 23px;
     position: relative;
     cursor: pointer;
     user-select: none;
     font-size: 12px;
-    border-radius: 0px 8px 0px 8px;
+    border-radius: 8px 8px 8px 8px;
 }
 
 .tgl + .tgl-btn:after,
@@ -149,6 +126,9 @@ hr{
     transition: all .2s ease;
     font-family: sans-serif;
     background: #888;
+    position: relative;
+    top: 16%;
+    right: 6%;
 }
 
 .tgl-skewed + .tgl-btn:after,
@@ -162,6 +142,7 @@ hr{
     line-height: 2em;
     font-weight: bold;
     color: #fff;
+    font-size: 11px;
     text-shadow: 0 1px 0 rgba(0,0,0,.4);
 }
 
@@ -176,10 +157,10 @@ hr{
 }
 
 .tgl-skewed + .tgl-btn:active {
-    background: #86d993;
+    background: #4279FF;
 }
 .tgl-skewed:checked + .tgl-btn {
-    background: #86d993;
+    background: #4279FF;
 }
 
 .tgl-skewed:checked + .tgl-btn:before {
