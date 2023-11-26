@@ -169,6 +169,7 @@ function updateButtonText(){
     }
 }
 
+
 const SDK = window.AFREECA.ext;
 const extensionSDK = SDK();
 function saveData(){
