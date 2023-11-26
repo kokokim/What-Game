@@ -19,26 +19,21 @@ items.forEach(item => {
 
         const tag_check_box=item.querySelector('input');
         item.classList.toggle("checked");
-        // alert(check_text.value);
 
         //css상 네모박스와 checkbox 연결
         if(tag_check_box.checked){
             tag_check_box.checked=false;
             
-            // alert("체크안됨");
             //체크하고 다시 체크했을때 해당 value값을 배열에서 빼야함
             const indexToRemove=tag_arr.indexOf("#"+tag_check_box.value+" ");
             if(indexToRemove!==-1){
                 tag_arr.splice(indexToRemove, 1);
             }
-            // alert("삭제후"+tag_arr);
-            // alert("삭제후"+tag_arr);
             count--;
         }
         else{
             if(count<4){
                 tag_check_box.checked=true;
-                // alert("체크됨");
                 tag_arr.push("#"+tag_check_box.value+"  ");
                 count++;
             }
@@ -46,7 +41,6 @@ items.forEach(item => {
                 item.classList.remove("checked");
             }
         }
-        // alert(tag_arr);
         updateButtonText();
     });
 })
@@ -79,7 +73,6 @@ function delete_list(event){
     const li = event.target.parentNode;
     li.remove();
     licount--;
-    alert("몇개?"+licount);
 }
 
 function check_false(event){
@@ -95,11 +88,9 @@ function addList() {
     const rdiobuttonId = "Game_Check_" + timestamp;
     //태그 없거나 게임 이름이 적혀있지 않는다면 다시 가서 입력
     if(licount<4){
-        alert("몇개?"+licount);
         licount++;
     }
     else{
-        alert("no몇개?"+licount);
         const checkboxes=document.getElementsByName('tag');
         checkboxes.forEach((checkbox)=>{
             checkbox.checked=false;
@@ -116,14 +107,6 @@ function addList() {
         tag_arr=[];
         return;
     }
-
-    // if(!game_name || count==0){
-    //     alert("게임명을 입력하고 최소 하나의 태그를 선택하세요.");
-    //     return;
-    // }
-    
-    // const togglenode = document.createElement('li');
-    // togglenode.setAttribute('class', 'tg-list-item');
 
     const radiobutton = document.createElement('input');
     radiobutton.className = "tgl tgl-skewed";
