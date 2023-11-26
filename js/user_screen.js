@@ -8,19 +8,29 @@ extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
     extensionSDK.broadcast.listen(function(action, message) {
         listen_data = message;
         reload_game_list(listen_data);
-        console.log(listen_data);
+        // console.log(listen_data);
     });
 });
 function reload_game_list(listen_data){
 
-    const gameList = document.getElementById("gameinfo_list");
-    console.log(gameList);
+    // const gameList = document.getElementById("gameinfo_list");
+    // console.log(gameList);
 
-    if(gameList != null)
-    {
-        gameList.remove();   
-    }
-    
+    // if(gameList != null)
+    // {
+    //     console.log("게임리스트삭제");
+    //     gameList.remove();
+    // }
+
+    // while(gameList != null)
+    // {
+    //     console.log("반복문도는중");
+    //     const gameList = document.getElementById("gameinfo_list");
+    //     gameList.remove();
+    // }
+
+    document.getElementById("what_game_list").innerHTML = '';
+
     for(let i = 0; i<listen_data.length; i++)
     {
         const timestamp = new Date().getTime();
