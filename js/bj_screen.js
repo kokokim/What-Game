@@ -26,10 +26,12 @@ items.forEach(item => {
             
             // alert("체크안됨");
             //체크하고 다시 체크했을때 해당 value값을 배열에서 빼야함
-            const indexToRemove=tag_arr.indexOf(tag_check_box.value);
+            const indexToRemove=tag_arr.indexOf("#"+tag_check_box.value+"  ");
             if(indexToRemove!==-1){
                 tag_arr.splice(indexToRemove, 1);
             }
+            // alert("삭제후"+tag_arr);
+            // alert("삭제후"+tag_arr);
             count--;
         }
         else{
@@ -40,15 +42,13 @@ items.forEach(item => {
                 count++;
             }
             else{
-                alert("3개 이상 체크됨. 더이상 체크 불가");
                 item.classList.remove("checked");
             }
         }
-        // alert(tag_arr);
-
         updateButtonText();
     });
 })
+
 
 function toggleTextbox(obj)
 {
