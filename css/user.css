@@ -54,7 +54,7 @@ hr{
 #img{
     width: 20px;
     height: 20px;
-    margin: 5px 10px 10px 5px;
+    margin: 10px 10px 30px 10px;
     float: left;
     border-radius: 70%;
 }
@@ -78,7 +78,8 @@ hr{
     background-color: #e8ebed;
     font-size: 11px;
     line-height: 20px;
-    border-radius: 0 0 8px 0;
+    border-radius: 8px 8px 8px 8px;
+    padding: 10px 0 0 10px;
 }
 
 
