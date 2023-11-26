@@ -43,7 +43,7 @@ hr{
 }
 #gameinfo_list {
     list-style: none;
-    height: 60px;
+    height: 81px;
     align-items: center;
     border-radius: 8px;
     cursor: pointer;
@@ -63,7 +63,7 @@ hr{
     height: 40px;
     float: left;
     font-size: 15px;
-    line-height: 30px;
+    line-height: 50px;
     
 }
 /* #Game_Check{
@@ -74,12 +74,13 @@ hr{
 #add_tag{
     float: left;
     height: 20px;
-    width: 213px;
+    width: 185px;
     background-color: #e8ebed;
     font-size: 11px;
     line-height: 20px;
     border-radius: 8px 8px 8px 8px;
-    padding: 10px 0 0 10px;
+    padding: 0px 0 0 10px;
+    margin: 0px 0px 10px 30px;
 }
 
 
