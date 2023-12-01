@@ -1,4 +1,18 @@
 // bj_screen
+
+const SDK = window.AFREECA.ext;
+const extensionSDK = SDK();
+extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
+    extensionSDK.broadcast.listen((action, message, fromId) =>
+    {   
+        if(action == "게임확인")
+        {
+            extensionSDK.broadcast.whisper(fromId, "game_list", send_list);
+        }
+    });
+    //이게 실행해서 아프리카sdk사용을 위한 초기화가 진행되고 saveData가 실행됨
+});
+
 var tag_arr=[];
 var gamename_arr=[];
 let licount=0;
@@ -178,9 +192,6 @@ function updateButtonText(){
     }
 }
 
-
-const SDK = window.AFREECA.ext;
-const extensionSDK = SDK();
 function saveData(){
 
     const alldiv = document.getElementById('what_game_list');
@@ -197,10 +208,13 @@ function saveData(){
             check: list[3].checked
         });
     }
-    extensionSDK.broadcast.send('game_list', send_list);
-    }
-extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
-    saveData();
-    //이게 실행해서 아프리카sdk사용을 위한 초기화가 진행되고 saveData가 실행됨
-});
+    extensionSDK.broadcast.send("game_list", send_list);
+}
+// extensionSDK.broadcast.listen((action, message, fromId) =>
+// {
+//     if(action == "출석체크")
+//     {
+//         extensionSDK.broadcast.whisper(fromId, game_list, send_list);
+//     }
+// });
 
