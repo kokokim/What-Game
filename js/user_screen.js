@@ -12,7 +12,7 @@ function init(bjId)
 {
     extensionSDK.broadcast.whisper(bjId, "게임확인", "이거이거");
     
-    extensionSDK.broadcast.listen(function(action, message, fromId) {
+    extensionSDK.broadcast.listen(function(action, message) {
         if(action == "game_list")
         {
             listen_data = message;
