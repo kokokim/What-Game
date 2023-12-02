@@ -1,21 +1,19 @@
 // bj_screen
 
-const SDK = window.AFREECA.ext;
-const extensionSDK = SDK();
-extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
-    extensionSDK.broadcast.listen((action, message, fromId) =>
-    {   
-        if(action == "게임확인")
-        {
-            extensionSDK.broadcast.whisper(fromId, "game_list", send_list);
-        }
-    });
-    //이게 실행해서 아프리카sdk사용을 위한 초기화가 진행되고 saveData가 실행됨
-});
-
+var send_list = [];
 var tag_arr=[];
 var gamename_arr=[];
 let licount=0;
+
+const SDK = window.AFREECA.ext;
+const extensionSDK = SDK();
+extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
+    //이게 실행해서 아프리카sdk사용을 위한 초기화가 진행되고 saveData가 실행됨
+
+    extensionSDK.broadcast.listen(function(action, message, fromId) {   
+    extensionSDK.broadcast.whisper(fromId, "game_list", send_list);
+    });
+});
 
 
 //버튼 클릭시 메뉴바 열림
@@ -197,7 +195,8 @@ function saveData(){
     const alldiv = document.getElementById('what_game_list');
     const content = alldiv.getElementsByTagName('li');
 
-    var send_list = [];
+    send_list = [];
+
     //태그와 게임이름 체크상태를 send_list에 객체로 생성하고 보냄
     for(let i=0; i < content.length; i++)
     {
