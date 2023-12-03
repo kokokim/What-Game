@@ -10,9 +10,13 @@ const extensionSDK = SDK();
 extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
     //이게 실행해서 아프리카sdk사용을 위한 초기화가 진행되고 saveData가 실행됨
 
-    extensionSDK.broadcast.listen(function(action, message, fromId) {   
+    extensionSDK.broadcast.listen(function(action, message, fromId) {
         {
-            extensionSDK.broadcast.whisper(fromId, "game_list", send_list);
+            if(message == "이거이거")
+            {
+                extensionSDK.broadcast.whisper(fromId, "game_list", send_list);
+                document.getElementById("testtesttest").value = message;
+            }
         }
     });
 });
