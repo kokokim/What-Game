@@ -15,7 +15,6 @@ extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
             if(message == "이거이거")
             {
                 extensionSDK.broadcast.whisper(fromId, "game_list", send_list);
-                document.getElementById("testtesttest").value = message;
             }
         }
     });
