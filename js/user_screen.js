@@ -4,14 +4,13 @@ const extensionSDK = SDK();
 
 var listen_data;
 
-extensionSDK.handleInitialization((userInfo, broadInfo, playerInfo) => {
-    init(extensionSDK.bjId);
+extensionSDK.handleInitialization((authInfo, broadInfo, playerInfo) => {
+    init(broadInfo.bjId);
 }); 
 
 function init(bjId)
 {
-    extensionSDK.broadcast.whisper(bjId, "게임확인", "이거이거");
-
+    extensionSDK.broadcast.whisper(bjId, "game_check", "이거이거");
     extensionSDK.broadcast.listen(function(action, message) {
         if(action == "game_list")
         {
