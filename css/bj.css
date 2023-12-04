@@ -8,8 +8,9 @@ body{
 }
 .bj_entire{
     /* position: relative; */
-    max-width: 495px;
-    width: 100%;
+    /* max-width: 495px;
+    width: 100%; */
+    width: 510px;
     height: 630px;
     margin: 0 auto;
     background-color:#f7f8f9;
