@@ -53,7 +53,7 @@ body{
     width: 60%;
     height: 50%;
     float: left;
-    font-size: 14.5px;
+    font-size: 14.5pt;
     line-height: 52px;
     padding-left: 5px;
     
@@ -63,7 +63,7 @@ body{
     height: 40%;
     width: 75%;
     background-color: #e8ebed;
-    font-size: 12px;
+    font-size: 9.2px;
     line-height: 20px;
     border-radius: 8px 8px 8px 8px;
     padding: 0px 5px 0px 10px;
